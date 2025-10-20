@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-
 import { ThemeToggleButton } from "@/components/common/ThemeToggleButton";
 
 const navLinks = [
@@ -10,11 +9,7 @@ const navLinks = [
   { label: "Khách hàng", href: "#testimonials" },
 ];
 
-export default function SiteLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
       <div
@@ -29,6 +24,7 @@ export default function SiteLayout({
           >
             TailCommerce
           </Link>
+
           <nav className="hidden items-center gap-6 text-sm font-medium text-gray-600 transition-colors lg:flex dark:text-gray-300">
             {navLinks.map((link) => (
               <Link
@@ -40,6 +36,7 @@ export default function SiteLayout({
               </Link>
             ))}
           </nav>
+
           <div className="flex items-center gap-3">
             <Link
               href="/"
@@ -51,9 +48,13 @@ export default function SiteLayout({
           </div>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-6xl px-6 pb-16 pt-12 sm:pb-20 lg:pb-24 lg:pt-16">{children}</main>
+
+      <main className="mx-auto w-full max-w-6xl px-6 pb-16 pt-12 sm:pb-20 lg:pb-24 lg:pt-16">
+        {children}
+      </main>
+
       <footer className="border-t border-gray-200/70 bg-white/80 px-6 py-8 text-center text-sm text-gray-500 transition-colors dark:border-gray-800/80 dark:bg-gray-950/70 dark:text-gray-400">
-        © {new Date().getFullYear()} TailCommerce. Thiết kế đồng bộ với TailAdmin theme.
+        © {new Date().getFullYear()} TailCommerce • Built with the shared TailAdmin theme system.
       </footer>
     </div>
   );
